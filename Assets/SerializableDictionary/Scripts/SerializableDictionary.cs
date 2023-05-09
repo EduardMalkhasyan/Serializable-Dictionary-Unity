@@ -17,7 +17,7 @@ public class SerializableDictionarySO<TKey, TValue> : ScriptableObject, ISeriali
         public TValue value;
     }
 
-    public void OnAfterDeserialize()
+    void ISerializationCallbackReceiver.OnAfterDeserialize()
     {
         dictionary.Clear();
 
@@ -27,7 +27,7 @@ public class SerializableDictionarySO<TKey, TValue> : ScriptableObject, ISeriali
         }
     }
 
-    public void OnBeforeSerialize()
+    void ISerializationCallbackReceiver.OnBeforeSerialize()
     {
         if (entries == null)
         {
@@ -68,7 +68,7 @@ public class SerializableDictionary<TKey, TValue> : MonoBehaviour, ISerializatio
         public TValue value;
     }
 
-    public void OnAfterDeserialize()
+    void ISerializationCallbackReceiver.OnAfterDeserialize()
     {
         dictionary.Clear();
 
@@ -78,7 +78,7 @@ public class SerializableDictionary<TKey, TValue> : MonoBehaviour, ISerializatio
         }
     }
 
-    public void OnBeforeSerialize()
+    void ISerializationCallbackReceiver.OnBeforeSerialize()
     {
         if (entries == null)
         {
