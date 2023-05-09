@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Data", order = 1)]
-public class PlayerColorNameCollection : SerializableDictionarySO<PlayerTypes, PlayerEntry>, ISerializationCallbackReceiver
+public class PlayerColorNameCollection : SerializableDictionarySO<PlayerTypes, PlayerEntry>
 {
 
 }
