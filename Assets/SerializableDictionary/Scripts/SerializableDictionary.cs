@@ -9,7 +9,7 @@ using UnityEditor;
 [Serializable]
 public class SerializableDictionary<TKey, TValue> : ISerializationCallbackReceiver
 {
-    [HelpBox("Text", false, HelpBoxMessageType.Error)]
+    [HelpBox(HelpBoxMessageType.Error)]
     [SerializeField] private List<KeyValueEntry> entries;
     private List<TKey> keys = new List<TKey>();
 
@@ -55,23 +55,32 @@ public class SerializableDictionary<TKey, TValue> : ISerializationCallbackReceiv
         {
             var duplicates = string.Join(", ", result);
             var errorMessage = $"Warning {GetType().Name} keys has duplicates {duplicates}";
+            Message.errorText = errorMessage;
+            Message.showIf = true;
+        }
+        else
+        {
+            Message.showIf = false;
         }
     }
+
 }
 
 #if UNITY_EDITOR
 public enum HelpBoxMessageType { None, Info, Warning, Error }
 
+public static class Message
+{
+    public static string errorText;
+    public static bool showIf;
+}
+
 public class HelpBoxAttribute : PropertyAttribute
 {
-    public string text;
-    public bool showIf;
     public HelpBoxMessageType messageType;
 
-    public HelpBoxAttribute(string text, bool showIf, HelpBoxMessageType messageType = HelpBoxMessageType.None)
+    public HelpBoxAttribute(HelpBoxMessageType messageType = HelpBoxMessageType.None)
     {
-        this.text = text;
-        this.showIf = showIf;
         this.messageType = messageType;
     }
 }
@@ -82,17 +91,17 @@ public class HelpBoxAttributeDrawer : DecoratorDrawer
     public override float GetHeight()
     {
         var helpBoxAttribute = attribute as HelpBoxAttribute;
-        if (helpBoxAttribute == null || !helpBoxAttribute.showIf) return base.GetHeight();
+        if (helpBoxAttribute == null || !Message.showIf) return base.GetHeight();
         var helpBoxStyle = (GUI.skin != null) ? GUI.skin.GetStyle("helpbox") : null;
         if (helpBoxStyle == null) return base.GetHeight();
-        return Mathf.Max(40f, helpBoxStyle.CalcHeight(new GUIContent(helpBoxAttribute.text), EditorGUIUtility.currentViewWidth) + 4);
+        return Mathf.Max(40f, helpBoxStyle.CalcHeight(new GUIContent(Message.errorText), EditorGUIUtility.currentViewWidth) + 4);
     }
 
     public override void OnGUI(Rect position)
     {
         var helpBoxAttribute = attribute as HelpBoxAttribute;
-        if (helpBoxAttribute == null || !helpBoxAttribute.showIf) return;
-        EditorGUI.HelpBox(position, helpBoxAttribute.text, GetMessageType(helpBoxAttribute.messageType));
+        if (helpBoxAttribute == null || !Message.showIf) return;
+        EditorGUI.HelpBox(position, Message.errorText, GetMessageType(helpBoxAttribute.messageType));
     }
 
     private MessageType GetMessageType(HelpBoxMessageType helpBoxMessageType)
