@@ -1,14 +1,21 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
 
-public class SerializableDictionarySO<TKey, TValue> : ScriptableObject, ISerializationCallbackReceiver
+[Serializable]
+public class SerializableDictionary<TKey, TValue> : ISerializationCallbackReceiver
 {
+    [HelpBox("Text", HelpBoxMessageType.Error)]
     [SerializeField] private List<KeyValueEntry> entries;
     private List<TKey> keys = new List<TKey>();
 
     public Dictionary<TKey, TValue> dictionary = new Dictionary<TKey, TValue>();
+
+    private static string errorText;
 
     [Serializable]
     class KeyValueEntry
@@ -23,7 +30,7 @@ public class SerializableDictionarySO<TKey, TValue> : ScriptableObject, ISeriali
 
         for (int i = 0; i < entries.Count; i++)
         {
-            dictionary.Add(entries[i].key, entries[i].value);
+            dictionary.TryAdd(entries[i].key, entries[i].value);
         }
     }
 
@@ -49,58 +56,58 @@ public class SerializableDictionarySO<TKey, TValue> : ScriptableObject, ISeriali
         if (result.Count > 0)
         {
             var duplicates = string.Join(", ", result);
-            Debug.LogError($"Warning {GetType().FullName} keys has duplicates {duplicates}");
+            var errorMessage = $"Warning {GetType().Name} keys has duplicates {duplicates}";
+            errorText = errorMessage;
         }
     }
 }
 
-public class SerializableDictionary<TKey, TValue> : MonoBehaviour, ISerializationCallbackReceiver
+#if UNITY_EDITOR
+public enum HelpBoxMessageType { None, Info, Warning, Error }
+
+public class HelpBoxAttribute : PropertyAttribute
 {
-    [SerializeField] private List<KeyValueEntry> entries;
-    private List<TKey> keys = new List<TKey>();
 
-    public Dictionary<TKey, TValue> dictionary = new Dictionary<TKey, TValue>();
+    public string text;
+    public HelpBoxMessageType messageType;
 
-    [Serializable]
-    class KeyValueEntry
+    public HelpBoxAttribute(string text, HelpBoxMessageType messageType = HelpBoxMessageType.None)
     {
-        public TKey key;
-        public TValue value;
+        this.text = text;
+        this.messageType = messageType;
+    }
+}
+
+[CustomPropertyDrawer(typeof(HelpBoxAttribute))]
+public class HelpBoxAttributeDrawer : DecoratorDrawer
+{
+
+    public override float GetHeight()
+    {
+        var helpBoxAttribute = attribute as HelpBoxAttribute;
+        if (helpBoxAttribute == null) return base.GetHeight();
+        var helpBoxStyle = (GUI.skin != null) ? GUI.skin.GetStyle("helpbox") : null;
+        if (helpBoxStyle == null) return base.GetHeight();
+        return Mathf.Max(40f, helpBoxStyle.CalcHeight(new GUIContent(helpBoxAttribute.text), EditorGUIUtility.currentViewWidth) + 4);
     }
 
-    void ISerializationCallbackReceiver.OnAfterDeserialize()
+    public override void OnGUI(Rect position)
     {
-        dictionary.Clear();
-
-        for (int i = 0; i < entries.Count; i++)
-        {
-            dictionary.Add(entries[i].key, entries[i].value);
-        }
+        var helpBoxAttribute = attribute as HelpBoxAttribute;
+        if (helpBoxAttribute == null) return;
+        EditorGUI.HelpBox(position, helpBoxAttribute.text, GetMessageType(helpBoxAttribute.messageType));
     }
 
-    void ISerializationCallbackReceiver.OnBeforeSerialize()
+    private MessageType GetMessageType(HelpBoxMessageType helpBoxMessageType)
     {
-        if (entries == null)
+        switch (helpBoxMessageType)
         {
-            return;
-        }
-
-        keys.Clear();
-
-        for (int i = 0; i < entries.Count; i++)
-        {
-            keys.Add(entries[i].key);
-        }
-
-        var result = keys.GroupBy(x => x)
-                         .Where(g => g.Count() > 1)
-                         .Select(x => new { Element = x.Key, Count = x.Count() })
-                         .ToList();
-
-        if (result.Count > 0)
-        {
-            var duplicates = string.Join(", ", result);
-            Debug.LogError($"Warning {GetType().FullName} keys has duplicates {duplicates}");
+            default:
+            case HelpBoxMessageType.None: return MessageType.None;
+            case HelpBoxMessageType.Info: return MessageType.Info;
+            case HelpBoxMessageType.Warning: return MessageType.Warning;
+            case HelpBoxMessageType.Error: return MessageType.Error;
         }
     }
 }
+#endif
