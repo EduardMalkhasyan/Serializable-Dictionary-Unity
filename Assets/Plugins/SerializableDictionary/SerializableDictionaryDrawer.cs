@@ -6,8 +6,8 @@ using UnityEditorInternal;
 
 namespace ProjectTools
 {
-    [CustomPropertyDrawer(typeof(SerializedDictionary<,>), true)]
-    public class SerializedDictionaryDrawer : PropertyDrawer
+    [CustomPropertyDrawer(typeof(SerializableDictionary<,>), true)]
+    public class SerializableDictionaryDrawer : PropertyDrawer
     {
         public override void OnGUI(Rect rect, SerializedProperty prop, GUIContent label)
         {

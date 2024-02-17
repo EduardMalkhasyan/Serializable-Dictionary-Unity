@@ -1,11 +1,15 @@
 using ProjectTools;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Example : MonoBehaviour
 {
-    [SerializeField] private SerializedDictionary<int, string> intToStringDictionary;
-    [SerializeField] private SerializedDictionary<string, Color> stringToColorDictionary;
-    [SerializeField] private SerializedDictionary<string, int[]> stringToIntArrayDictionary;
-    [SerializeField] private SerializedDictionary<string, List<int>> stringToIntListDictionary;
+    [SerializeField] private SerializableDictionary<int, string> intToStringDictionary;
+    [SerializeField] private SerializableDictionary<string, Color> stringToColorDictionary;
+    [SerializeField] private SerializableDictionary<string, int[]> stringToIntArrayDictionary;
+
+    [ContextMenu("Test")]
+    private void Test()
+    {
+        Debug.Log(intToStringDictionary[1]);
+    }
 }

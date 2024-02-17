@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ProjectTools
 {
     [System.Serializable]
-    public class SerializedDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
+    public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
     {
         [SerializeField] private List<SerializedDictionaryKVPProps<TKey, TValue>> dictionaryList = new();
 
