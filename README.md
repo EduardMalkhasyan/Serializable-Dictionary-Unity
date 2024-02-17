@@ -1,6 +1,7 @@
 # Serializable Dictionary in Unity
 
 ## Download:
+[Download Unity Package](https://github.com/EduardMalkhasyan/Serializable-Dictionary-Unity/releases/tag/V2)
 
 ## How to Use:
 
