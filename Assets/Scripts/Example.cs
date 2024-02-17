@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class Example : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI GeorgeLabel;
+    [SerializeField] private Text GeorgeLabel;
     [SerializeField] private Image GeorgeImage;
 
-    [SerializeField] private TextMeshProUGUI ThemisLabel;
+    [SerializeField] private Text ThemisLabel;
     [SerializeField] private Image ThemisImage;
 
     [SerializeField] private SerializableDictionary<int, string> intToStringDictionary;
