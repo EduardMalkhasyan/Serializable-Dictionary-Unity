@@ -20,4 +20,3 @@ It can automatically detect duplicates and display them in the Inspector
 Also in Debugger when it will be called
 ![Screenshot_1](https://github.com/EduardMalkhasyan/Serializable-Dictionary-Unity/assets/78969017/e626bf52-7db5-46e8-a6db-c1000de6bbe1)
 
-
