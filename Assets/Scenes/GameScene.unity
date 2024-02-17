@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 81488443}
   - component: {fileID: 81488442}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Gerorge Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 94837666}
   - component: {fileID: 94837665}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Themis Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 101902932}
   - component: {fileID: 101902931}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Gerorge Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -563,7 +563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1006924959}
   m_Layer: 5
-  m_Name: Object (2)
+  m_Name: Themis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -603,7 +603,7 @@ GameObject:
   - component: {fileID: 1060324357}
   - component: {fileID: 1060324356}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Themis Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -711,16 +711,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c005417e09874548b72ec69c6937d7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GeorgeLabel: {fileID: 81488442}
+  GeorgeImage: {fileID: 101902931}
+  ThemisLabel: {fileID: 94837665}
+  ThemisImage: {fileID: 1060324356}
   intToStringDictionary:
     dictionaryList:
     - Key: 0
-      Value: 
+      Value: George
       index: 0
       isKeyDuplicated: 0
+    - Key: 1
+      Value: Themis
+      index: 1
+      isKeyDuplicated: 0
   stringToColorDictionary:
-    dictionaryList: []
+    dictionaryList:
+    - Key: George
+      Value: {r: 0.990566, g: 0.44544312, b: 0.44544312, a: 1}
+      index: 0
+      isKeyDuplicated: 0
+    - Key: Themis
+      Value: {r: 0.21681976, g: 1, b: 0, a: 1}
+      index: 1
+      isKeyDuplicated: 0
   stringToIntArrayDictionary:
-    dictionaryList: []
+    dictionaryList:
+    - Key: 1
+      Value: 000000000000000000000000
+      index: 0
+      isKeyDuplicated: 0
+    - Key: 2
+      Value: 0000000000000000
+      index: 1
+      isKeyDuplicated: 0
 --- !u!1 &1720448306
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,7 +823,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1820033901}
   m_Layer: 5
-  m_Name: Object (1)
+  m_Name: Gerorge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
