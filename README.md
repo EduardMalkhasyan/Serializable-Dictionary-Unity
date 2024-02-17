@@ -22,7 +22,7 @@ It can automatically detect duplicates and display them in the Inspector
 ![mutiple duplicated keys](https://github.com/EduardMalkhasyan/Serializable-Dictionary-Unity/assets/78969017/99fc3aef-d764-436a-8b48-0bab0983700e)
 
 Also in Debugger when it will be called
-![Screenshot_1](https://github.com/EduardMalkhasyan/Serializable-Dictionary-Unity/assets/78969017/e626bf52-7db5-46e8-a6db-c1000de6bbe1)
+![aaaaaaaaa](https://github.com/EduardMalkhasyan/Serializable-Dictionary-Unity/assets/78969017/fd9ba251-1389-4a5f-8d21-018d87e718f3)
 
 ## Simple Example in Use
 You can simply clone the project and check the results. Here is a very simple example for use
