@@ -24,8 +24,8 @@ It can automatically detect duplicates and display them in the Inspector
 Also in Debugger when it will be called
 ![Screenshot_1](https://github.com/EduardMalkhasyan/Serializable-Dictionary-Unity/assets/78969017/e626bf52-7db5-46e8-a6db-c1000de6bbe1)
 
-## Example in use
-You can just simply clone project and check the results there here is very simple example for use 
+## Simple Example in Use
+You can simply clone the project and check the results. Here is a very simple example for use
 
 ```csharp
 using ProjectTools;
