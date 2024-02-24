@@ -51,6 +51,7 @@ namespace ProjectTools
         {
             get
             {
+#if UNITY_EDITOR
                 if (ContainsKey(key))
                 {
                     var duplicateKeysWithCount = dictionaryList.GroupBy(item => item.Key)
@@ -69,6 +70,9 @@ namespace ProjectTools
                     Debug.LogError($"Key '{key}' not found in dictionary.");
                     return default(TValue);
                 }
+#else
+                return base[key];
+#endif
             }
         }
 
