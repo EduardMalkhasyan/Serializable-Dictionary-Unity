@@ -20,9 +20,9 @@ public class Example : MonoBehaviour, MyTestInterface
     [SerializeField] private SerializableDictionary<string, Color> stringToColorDictionary;
     [SerializeField] private SerializableDictionary<string, int[]> stringToIntArrayDictionary;
 
-    [SerializeField] private SerializableDictionary<string, InterfaceHolder<MyTestInterface>> stringToInterfaceDictionary;
-
     [SerializeField] private InterfaceHolder<MyTestInterface> serializedInterface;
+
+    [SerializeField] private SerializableDictionary<string, InterfaceHolder<MyTestInterface>> stringToInterfaceDictionary;
 
     private const string GeorgeName = "George";
     private const string ThemisName = "Themis";

@@ -635,6 +635,8 @@ MonoBehaviour:
       Value: 0000000000000000
       index: 1
       isKeyDuplicated: 0
+  serializedInterface:
+    value: {fileID: 1135542434}
   stringToInterfaceDictionary:
     dictionaryList:
     - Key: interface_1
@@ -642,8 +644,6 @@ MonoBehaviour:
         value: {fileID: 1135542434}
       index: 0
       isKeyDuplicated: 0
-  serializedInterface:
-    value: {fileID: 1135542434}
 --- !u!1 &1720448306
 GameObject:
   m_ObjectHideFlags: 0

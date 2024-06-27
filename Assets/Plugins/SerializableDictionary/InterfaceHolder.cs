@@ -30,7 +30,7 @@ namespace ProjectTools
 
             EditorGUI.BeginChangeCheck();
             MonoBehaviour newValue = (MonoBehaviour)EditorGUI
-                                     .ObjectField(position, valueProperty.objectReferenceValue, typeof(MonoBehaviour), true);
+                                     .ObjectField(position, label, valueProperty.objectReferenceValue, typeof(MonoBehaviour), true);
             if (EditorGUI.EndChangeCheck())
             {
                 if (newValue == null || newValue.GetComponent(fieldInfo.FieldType.GenericTypeArguments[0]) != null)
