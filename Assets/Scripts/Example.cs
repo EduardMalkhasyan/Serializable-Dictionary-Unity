@@ -29,7 +29,7 @@ public class Example : MonoBehaviour, MyTestInterface
     private void Start()
     {
         TestSetup();
-        TestMethod();
+        serializedInterface.Value.TestMethod();
     }
 
     public void TestSetup()

@@ -252,6 +252,7 @@ namespace ProjectTools
             {
                 Draw(valueRect, valueProp);
 
+#if !ODIN_INSPECTOR
                 if (valueProp.type.StartsWith("InterfaceHolder"))
                 {
                     var interfaceValue = valueProp.FindPropertyRelative("value");
@@ -272,6 +273,7 @@ namespace ProjectTools
                         }
                     }
                 }
+#endif
             }
 
             void Divider()

@@ -18,7 +18,7 @@ namespace ProjectTools
         }
     }
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR && !ODIN_INSPECTOR
     [CustomPropertyDrawer(typeof(InterfaceHolder<>))]
     public class InterfaceHolderDrawer : PropertyDrawer
     {
@@ -30,7 +30,9 @@ namespace ProjectTools
 
             EditorGUI.BeginChangeCheck();
             MonoBehaviour newValue = (MonoBehaviour)EditorGUI
-                                     .ObjectField(position, label, valueProperty.objectReferenceValue, typeof(MonoBehaviour), true);
+                                     .ObjectField(position, label, valueProperty.objectReferenceValue,
+                                      typeof(MonoBehaviour), true);
+
             if (EditorGUI.EndChangeCheck())
             {
                 if (newValue == null || newValue.GetComponent(fieldInfo.FieldType.GenericTypeArguments[0]) != null)
