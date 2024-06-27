@@ -3,7 +3,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Example : MonoBehaviour
+public interface MyTestInterface
+{
+    void TestMethod();
+}
+
+public class Example : MonoBehaviour, MyTestInterface
 {
     [SerializeField] private Text GeorgeLabel;
     [SerializeField] private Image GeorgeImage;
@@ -15,12 +20,17 @@ public class Example : MonoBehaviour
     [SerializeField] private SerializableDictionary<string, Color> stringToColorDictionary;
     [SerializeField] private SerializableDictionary<string, int[]> stringToIntArrayDictionary;
 
+    [SerializeField] private SerializableDictionary<string, InterfaceHolder<MyTestInterface>> stringToInterfaceDictionary;
+
+    [SerializeField] private InterfaceHolder<MyTestInterface> serializedInterface;
+
     private const string GeorgeName = "George";
     private const string ThemisName = "Themis";
 
     private void Start()
     {
         TestSetup();
+        TestMethod();
     }
 
     public void TestSetup()
@@ -30,5 +40,16 @@ public class Example : MonoBehaviour
 
         GeorgeImage.color = stringToColorDictionary[GeorgeName];
         ThemisImage.color = stringToColorDictionary[ThemisName];
+    }
+
+    [ContextMenu("Call")]
+    public void CallTestMethodOfInterface()
+    {
+        stringToInterfaceDictionary["interface_1"].Value.TestMethod();
+    }
+
+    public void TestMethod()
+    {
+        Debug.Log("Test Method Call");
     }
 }
