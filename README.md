@@ -9,6 +9,10 @@ Just simpy import Unity Package it contains only two scripts and it ready to use
 This SerializableDictionary provides functionality similar to Unity's Dictionary<TKey, TValue>, allowing it to be displayed in the Unity Inspector.
 Works also with [Odin Inspector](https://odininspector.com/) and without! 
 
+## Extra Also Serialize Interfaces in Version 2.01
+![image](https://github.com/EduardMalkhasyan/Serializable-Dictionary-Unity/assets/78969017/9750342a-19fd-4b5d-8462-566972f41d0a)
+![image](https://github.com/EduardMalkhasyan/Serializable-Dictionary-Unity/assets/78969017/558baa41-43be-4fd3-a4b0-2fd50ce60720)
+
 Example script
 ```csharp
 public SerializableDictionary<int, string> intToStringDictionary;
