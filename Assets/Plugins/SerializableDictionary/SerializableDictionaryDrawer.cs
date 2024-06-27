@@ -255,17 +255,20 @@ namespace ProjectTools
                 if (valueProp.type.StartsWith("InterfaceHolder"))
                 {
                     var interfaceValue = valueProp.FindPropertyRelative("value");
-                    MonoBehaviour newValue = (MonoBehaviour)EditorGUI.ObjectField(valueRect, interfaceValue.objectReferenceValue, typeof(MonoBehaviour), true);
+                    MonoBehaviour newValue = (MonoBehaviour)EditorGUI.ObjectField(valueRect,
+                                              interfaceValue.objectReferenceValue, typeof(MonoBehaviour), true);
 
                     if (interfaceValue.objectReferenceValue != newValue)
                     {
-                        if (newValue == null || newValue.GetComponent(fieldInfo.FieldType.GenericTypeArguments[1].GenericTypeArguments[0]) != null)
+                        if (newValue == null || newValue.GetComponent(
+                            fieldInfo.FieldType.GenericTypeArguments[1].GenericTypeArguments[0]) != null)
                         {
                             interfaceValue.objectReferenceValue = newValue;
                         }
                         else
                         {
-                            Debug.LogWarning($"Assigned object must implement interface {fieldInfo.FieldType.GenericTypeArguments[1].GenericTypeArguments[0].Name}");
+                            Debug.LogWarning($"Assigned object must implement interface " +
+                                             $"{fieldInfo.FieldType.GenericTypeArguments[1].GenericTypeArguments[0].Name}");
                         }
                     }
                 }
