@@ -49,7 +49,15 @@ namespace ProjectTools
                 void DisplayName()
                 {
                     GUI.color = Color.white;
+
+#if UNITY_2022_1_OR_NEWER
+                    var labelRect = headerRect;
+                    labelRect.x += 12;
+                    GUI.Label(labelRect, prop.displayName);
+#else
                     GUI.Label(headerRect, prop.displayName);
+#endif
+
                     GUI.color = Color.white;
                     GUI.skin.label.fontSize = 12;
                     GUI.skin.label.fontStyle = FontStyle.Normal;
