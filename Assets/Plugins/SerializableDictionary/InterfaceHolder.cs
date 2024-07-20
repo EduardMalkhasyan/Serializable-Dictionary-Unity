@@ -10,7 +10,25 @@ namespace ProjectTools
     {
         [SerializeField] private MonoBehaviour value;
 
-        public T Value => value as T;
+        public T Value
+        {
+            get
+            {
+                if (value == null)
+                {
+                    Debug.LogError("value is null");
+                    return null;
+                }
+
+                T castValue = value as T;
+                if (castValue == null)
+                {
+                    Debug.LogError($"value cannot be cast to {typeof(T)}. It is of type {value.GetType()}");
+                }
+
+                return castValue;
+            }
+        }
 
         public InterfaceHolder(MonoBehaviour value)
         {
