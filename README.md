@@ -4,7 +4,7 @@
 [Download](https://github.com/EduardMalkhasyan/Serializable-Dictionary-Unity/releases)
 
 ## How to Use:
-Just simpy import Unity Package it contains only two scripts and it ready to use!
+Just simpy import Unity Package it contains only several scripts and it ready to use!
 
 This SerializableDictionary provides functionality similar to Unity's Dictionary<TKey, TValue>, allowing it to be displayed in the Unity Inspector.
 Works also with [Odin Inspector](https://odininspector.com/) and without
