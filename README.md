@@ -1,7 +1,7 @@
 # Serializable Dictionary in Unity
 
 ## Download Unity Package:
-[Download](https://github.com/EduardMalkhasyan/Serializable-Dictionary-Unity/releases)
+[Download](https://github.com/EduardMalkhasyan/Serializable-Dictionary-Unity/releases). Works with Unity 2018 and higher
 
 ## How to Use:
 Just simpy import Unity Package it contains only several scripts and it ready to use!
