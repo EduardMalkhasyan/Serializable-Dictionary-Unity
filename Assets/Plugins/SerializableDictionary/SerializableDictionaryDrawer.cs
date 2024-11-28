@@ -94,7 +94,7 @@ namespace ProjectTools
                     }
 
                     float with = GUI.skin.label.CalcSize(new GUIContent(prop.displayName)).x;
-                    headerRect.x += with + 24f;
+                    headerRect.x += with + 35f;
                     var warningRect = headerRect;
                     Rect warningRectIcon = new Rect(headerRect.x - 18, headerRect.y, headerRect.width, headerRect.height);
                     GUI.color = Color.white;
@@ -297,7 +297,7 @@ namespace ProjectTools
                 {
                     if (Event.current.type == EventType.MouseDown)
                     {
-                        isDividerDragged = true;
+                        //isDividerDragged = true;
                     }
                     else if (Event.current.type == EventType.MouseUp
                              || Event.current.type == EventType.MouseMove
