@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ProjectTools.InterfaceHelp
+namespace ProjectTools
 {
     [System.Serializable]
     public class UnityObjectWrapper<T> where T : class
