@@ -1,8 +1,8 @@
-using ProjectTools.InterfaceHelp;
+using Project.Tools.InterfaceHelp;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ProjectTools.DictionaryHelp
+namespace Project.Tools.DictionaryHelp
 
 {
     public interface MyTestInterface

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditorInternal;
 
-namespace ProjectTools.DictionaryHelp
+namespace Project.Tools.DictionaryHelp
 {
     [CustomPropertyDrawer(typeof(SerializableDictionary<,>), true)]
     public class SerializableDictionaryDrawer : PropertyDrawer

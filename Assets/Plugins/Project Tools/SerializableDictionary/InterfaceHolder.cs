@@ -3,7 +3,7 @@ using UnityEditor;
 #endif
 using UnityEngine;
 
-namespace ProjectTools.InterfaceHelp
+namespace Project.Tools.InterfaceHelp
 {
     [System.Serializable]
     public class InterfaceHolder<T> where T : class
