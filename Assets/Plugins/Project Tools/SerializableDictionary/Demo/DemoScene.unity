@@ -738,7 +738,7 @@ MonoBehaviour:
   stringToColorDictionary:
     dictionaryList:
     - Key: George
-      Value: {r: 0.990566, g: 0.44544312, b: 0.44544312, a: 1}
+      Value: {r: 0.9811321, g: 0.30544668, b: 0.30544668, a: 1}
       index: 0
       isKeyDuplicated: 0
     - Key: Themis
